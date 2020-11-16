@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Start.Master.cs" Inherits="SHOP.Start1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title visible="false"></title>
+    <asp:contentplaceholder id="head" runat="server"></asp:contentplaceholder>
+    <link href="layout.css" rel="stylesheet" type="text/css" />
+    <link href="classes.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="container">
+        <div id="header">
+            <asp:Label ID="LogoLabel" CssClass="logotext" runat="server" Text="My Webshop"></asp:Label>
+        </div>
+        <div id="border">
+            &nbsp;&nbsp;<asp:HyperLink ID="hplHome" CssClass="extra" NavigateUrl="~/Default.aspx" runat="server">Home</asp:HyperLink>
+        </div>
+        <div id="menu">
+            <div class="extra">
+                <asp:Panel ID="SigninPanel" runat="server" Visible="true">
+                <table width="160" style="border: Solid 1px silver">
+                    <tr>
+                        <td colspan="2" style="height: 20px; font-weight:bold">
+                        Sign in</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">E-mail (username)</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 156px"><asp:TextBox id="LoginUserName" runat="server" Width="156px"></asp:TextBox></td>
+                        <td style="width: 4px"><asp:RequiredFieldValidator ControlToValidate="LoginUserName" Display="Static" ErrorMessage="*" runat="server" ID="vUserName" validationgroup="Login" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Password</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 156px"><asp:TextBox id="LoginUserPass" TextMode="password" runat="server" Width="156px"></asp:TextBox></td>
+                        <td style="width: 4px"><asp:RequiredFieldValidator ControlToValidate="LoginUserPass" Display="Static" ErrorMessage="*" runat="server" ID="vUserPass" validationgroup="Login" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><asp:CheckBox id="chkPersistCookie" Text="Stay signed in" runat="server" autopostback="false" /><br />
+                        <asp:Button Text="Sign in" runat="server" ID="cmdLogin" validationgroup="Login" OnClick="cmdLogin_Click"></asp:Button></td>
+                    </tr>
+                </table>
+                <asp:Label id="lblMessage" ForeColor="Red" Font-Size="8pt" runat="server" Width="200px" />
+                <asp:HyperLink ID="hplRegister" runat="server" NavigateUrl="~/Register-customer.aspx">Register as a customer</asp:HyperLink><br />
+                <asp:HyperLink ID="hplNewPassword" runat="server" NavigateUrl="~/Forgot-password.aspx">Fortgot your password?</asp:HyperLink><br />
+                <br />
+                </asp:Panel>
+                <asp:Panel ID="CustomerPanel" runat="server" Visible="false">
+                <asp:Label ID="lblUserName" Font-Bold="true" runat="server" Text=""></asp:Label><br />
+                <asp:HyperLink ID="hplOrders" runat="server" NavigateUrl="~/Orders.aspx">List of orders</asp:HyperLink><br />
+                <asp:HyperLink ID="hplShoppingCart" runat="server" NavigateUrl="~/Shopping-cart.aspx">Shopping cart</asp:HyperLink><br /><br />
+                <asp:LinkButton ID="btnSignOut" runat="server" OnClick="btnSignOut_Click">Sign Out</asp:LinkButton><br />
+                <br />
+                </asp:Panel>
+                <asp:HiddenField ID="HiddenCustomerID" runat="server" />
+            </div>
+        </div>
+        <div id="content">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="ad-right" style="padding-top:15px;">
+            <asp:Panel ID="SmallCartPanel" runat="server" Visible="false">
+            <table border="0" width="160px" cellpadding="0" cellspacing="0" style="border: solid 1px silver">
+                <tr>
+                    <th style="background-color:Silver">Shopping cart</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td><asp:Literal ID="ltCartItem" runat="server"></asp:Literal></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center"><asp:HyperLink ID="hplGoToShoppingCart" runat="server" NavigateUrl="~/Shopping-cart.aspx">Go to cart --></asp:HyperLink></td>
+                </tr>
+            </table>
+            </asp:Panel>
+            <br />
+        </div>
+        <div id="footer">
+            <div class="bottom">
+                Copyright 2009 &copy; Mywebshop.com
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
