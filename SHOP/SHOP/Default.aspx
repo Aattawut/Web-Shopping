@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="extra">
-        <h1>Welcome to my webshop</h1>
+        <h1>สวัสดีจ้า</h1>
         We have one customer with the username of "info@customer.com" and a password of "customer" and a second customer
         with the username of "go@customer.com" and a password of "customer". Here below are
         a page lised of the products that this webshop sells and you have to click on one product to view it and to
